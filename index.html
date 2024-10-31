@@ -145,7 +145,7 @@
                 });
             }, 3000);
 
-            // 'video3.mp4' 비디오 요소 생성 및 0.5초 런더머 재생 후 사라지게 하기
+            // 'video3.mp4' 비디오 요소 생성 및 0.5초 랜덤 재생 후 사라지게 하기
             let videoSnippet = document.getElementById('videoSnippet');
             if (!videoSnippet) {
                 videoSnippet = document.createElement('video');
@@ -157,7 +157,7 @@
                 document.body.appendChild(videoSnippet);
             }
 
-            // 기존의 canplaythrough 이벤트 리스너를 제거하고 재등록하여 중복 방지
+            // 기존의 이벤트 리스너 제거 및 동일 참조 유지하여 재등록
             videoSnippet.removeEventListener('canplaythrough', playRandomSnippet);
             videoSnippet.addEventListener('canplaythrough', playRandomSnippet);
 
@@ -171,7 +171,7 @@
             const videoSnippet = document.getElementById('videoSnippet');
             const videoDuration = videoSnippet.duration;
             if (isNaN(videoDuration) || videoDuration <= 0.5) {
-                console.error('비디오 길이가 너무 즉거나 로드되지 않았습니다.');
+                console.error('비디오 길이가 너무 짧거나 로드되지 않았습니다.');
                 return;
             }
 
@@ -246,4 +246,3 @@
     </script>
 </body>
 </html>
-
